@@ -3,10 +3,11 @@ package com.coderobust.loanmanagementapp
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.coderobust.loanmanagementapp.databinding.ItemLoanBinding
 
 class LoanRecyclerAdapter(val items:List<LoanItem>): RecyclerView.Adapter<LoanItemViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LoanItemViewHolder {
-        return LoanItemViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_loan,parent,false))
+        return LoanItemViewHolder(ItemLoanBinding.inflate(LayoutInflater.from(parent.context),parent,false))
     }
 
     override fun getItemCount(): Int {
@@ -15,7 +16,8 @@ class LoanRecyclerAdapter(val items:List<LoanItem>): RecyclerView.Adapter<LoanIt
 
     override fun onBindViewHolder(holder: LoanItemViewHolder, position: Int) {
         val item=items.get(position)
-        //TODO: Bind item data
+        holder.binding.name.text=item.recipientName
+        holder.binding.amount.text=item.amount.toString()
     }
 
 }

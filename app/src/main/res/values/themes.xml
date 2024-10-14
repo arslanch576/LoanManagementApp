@@ -3,6 +3,9 @@
     <style name="Base.Theme.LoanManagementApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="colorPrimary">@color/themeColor</item>
+        <item name="colorSecondary">@color/themeColor</item>
     </style>
 
     <style name="Theme.LoanManagementApp" parent="Base.Theme.LoanManagementApp" />
