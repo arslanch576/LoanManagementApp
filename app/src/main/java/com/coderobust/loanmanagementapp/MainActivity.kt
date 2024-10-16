@@ -12,10 +12,13 @@ import com.coderobust.loanmanagementapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
+    lateinit var appDatabase:AppDatabase
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        appDatabase=AppDatabase.getDatabase(this)
 
         binding.floatingActionButton.setOnClickListener {
             startActivity(Intent(this, AddLoanItemActivity::class.java))
@@ -28,7 +31,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        val adapter:LoanRecyclerAdapter=LoanRecyclerAdapter(AppDatabase.getDatabase(this).loanItemDao().getAll())
+        val adapter:LoanRecyclerAdapter=LoanRecyclerAdapter(appDatabase.loanItemDao().getAll())
         binding.recyclerview.adapter=adapter
+        binding.receivables.text=appDatabase.loanItemDao().getReceivableAmount().toString()
+        binding.payables.text=appDatabase.loanItemDao().getPayableAmount().toString()
+        binding.account.text=(appDatabase.loanItemDao().getPayableAmount()-appDatabase.loanItemDao().getReceivableAmount()).toString()
     }
 }
