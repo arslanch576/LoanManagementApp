@@ -26,7 +26,7 @@ class AddLoanItemActivity : AppCompatActivity() {
             loanItem.promiseDate=binding.promiseDate.editText?.text.toString()
             loanItem.notes=binding.notes.editText?.text.toString()
             loanItem.purpose=binding.purpose.editText?.text.toString()
-            loanItem.isBorrowed=binding.borrowing.isSelected
+            loanItem.isBorrowed=binding.toggleButton.checkedButtonId==R.id.borrowing
 
             val appDatabase=AppDatabase.getDatabase(this)
             appDatabase.loanItemDao().save(loanItem)

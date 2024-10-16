@@ -35,6 +35,6 @@ class MainActivity : AppCompatActivity() {
         binding.recyclerview.adapter=adapter
         binding.receivables.text=appDatabase.loanItemDao().getReceivableAmount().toString()
         binding.payables.text=appDatabase.loanItemDao().getPayableAmount().toString()
-        binding.account.text=(appDatabase.loanItemDao().getPayableAmount()-appDatabase.loanItemDao().getReceivableAmount()).toString()
+        binding.account.text=(appDatabase.loanItemDao().getReceivableAmount()-appDatabase.loanItemDao().getPayableAmount()).toString()
     }
 }
