@@ -13,13 +13,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="34dp"
         android:text="Return Loan"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/amount"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:hint="Return Amount"
@@ -35,7 +36,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/startDate"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:hint="Return Date"

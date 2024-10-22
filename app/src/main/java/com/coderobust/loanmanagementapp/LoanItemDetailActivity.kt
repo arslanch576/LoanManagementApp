@@ -6,6 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.coderobust.loanmanagementapp.databinding.ActivityLoanItemDetailBinding
 import com.coderobust.loanmanagementapp.databinding.ActivityMainBinding
 import com.coderobust.loanmanagementapp.databinding.DialogReturnLoanBinding
@@ -53,5 +54,8 @@ class LoanItemDetailActivity : AppCompatActivity() {
         binding.returnAmount.text="Returned: "+loanItem.returnAmount.toString()
         binding.purpose.text="Purpose: "+loanItem.purpose
         binding.notes.text="Notes: "+loanItem.notes
+        binding.recyclerView.layoutManager= LinearLayoutManager(this)
+        val adapter=LoanReturnHistoryRecyclerAdapter(AppDatabase.getDatabase(this).loanReturnHistoryDao().getAllById(loanItem.id))
+        binding.recyclerView.adapter=adapter
     }
 }
