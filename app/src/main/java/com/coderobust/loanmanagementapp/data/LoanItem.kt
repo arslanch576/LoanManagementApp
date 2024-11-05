@@ -1,4 +1,4 @@
-package com.coderobust.loanmanagementapp
+package com.coderobust.loanmanagementapp.data
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

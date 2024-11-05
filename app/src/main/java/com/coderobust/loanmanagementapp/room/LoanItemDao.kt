@@ -1,16 +1,17 @@
-package com.coderobust.loanmanagementapp
+package com.coderobust.loanmanagementapp.room
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
+import com.coderobust.loanmanagementapp.data.LoanItem
 
 @Dao
 interface LoanItemDao {
 
     @Query("Select * from LoanItem where id=:id")
-    fun getItemById(id:Int):LoanItem
+    fun getItemById(id:Int): LoanItem
 
     @Query("Select * from LoanItem order by id desc")
     fun getAll() : List<LoanItem>
