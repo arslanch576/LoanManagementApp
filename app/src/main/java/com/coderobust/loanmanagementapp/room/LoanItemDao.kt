@@ -1,5 +1,6 @@
 package com.coderobust.loanmanagementapp.room
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -15,6 +16,9 @@ interface LoanItemDao {
 
     @Query("Select * from LoanItem order by id desc")
     fun getAll() : List<LoanItem>
+
+    @Query("Select * from LoanItem order by id desc")
+    fun getAllLive() : LiveData<List<LoanItem>>
 
     @Query("Select sum(amount) from LoanItem where isBorrowed=0")
     fun getReceivableAmount() : Int
